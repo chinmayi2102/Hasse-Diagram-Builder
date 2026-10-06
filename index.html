@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasse Journey</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="topbar">
+
+    <div class="logo">
+        <span class="logo-mark">◇</span>
+        <div>
+            <strong>HASSE</strong>
+            <small>JOURNEY</small>
+        </div>
+    </div>
+
+    <nav>
+        <button onclick="showSection('homeSection')">Home</button>
+        <button onclick="showSection('studySection')">Study</button>
+        <button onclick="showSection('levelsSection')">Levels</button>
+        <button onclick="toggleTheme()" id="themeBtn">☾</button>
+    </nav>
+
+</header>
+
+
+<!-- ================= HOME ================= -->
+
+<section id="homeSection" class="section active">
+
+    <div class="hero">
+
+        <div class="hero-small">DISCRETE MATHEMATICS</div>
+
+        <h1>Build the<br><span>Perfect Order.</span></h1>
+
+        <p>
+            Understand relations. Find cover relations.
+            Build Hasse diagrams. Complete your logic journey.
+        </p>
+
+        <div class="hero-buttons">
+            <button class="primary-btn" onclick="startPlaying()">
+                Start Journey →
+            </button>
+
+            <button class="secondary-btn" onclick="showSection('studySection')">
+                Learn First
+            </button>
+        </div>
+
+    </div>
+
+    <div class="home-preview">
+
+        <div class="preview-title">
+            <span>YOUR MISSION</span>
+            <strong>Connect only what belongs.</strong>
+        </div>
+
+        <div class="preview-diagram">
+            <div class="preview-node top">c</div>
+
+            <div class="preview-line"></div>
+
+            <div class="preview-row">
+                <div class="preview-node">a</div>
+                <div class="preview-node">b</div>
+            </div>
+
+            <div class="preview-line"></div>
+
+            <div class="preview-node bottom">1</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= STUDY ================= -->
+
+<section id="studySection" class="section">
+
+    <div class="study-container">
+
+        <div class="study-header">
+            <span class="study-tag">LEARN THE BASICS</span>
+
+            <h1>Hasse Diagram Guide</h1>
+
+            <p>
+                Everything you need to know before entering the journey.
+            </p>
+        </div>
+
+
+        <div class="study-grid">
+
+            <!-- 01 -->
+
+            <div class="study-card">
+
+                <div class="study-number">01</div>
+
+                <h2>What is a Hasse Diagram?</h2>
+
+                <p>
+                    A Hasse diagram is a visual representation of a
+                    <strong>partially ordered set (poset)</strong>.
+                    Elements are represented as nodes and their ordering
+                    relationships are shown using lines.
+                </p>
+
+                <ul>
+                    <li>Elements are represented by nodes.</li>
+                    <li>Smaller elements are placed below larger elements.</li>
+                    <li>Only important ordering relationships are shown.</li>
+                    <li>Arrowheads are not used.</li>
+                </ul>
+
+            </div>
+
+
+            <!-- 02 -->
+
+            <div class="study-card">
+
+                <div class="study-number">02</div>
+
+                <h2>What is a Poset?</h2>
+
+                <p>
+                    A partially ordered set is a set together with a
+                    relation satisfying three important properties.
+                </p>
+
+                <div class="rule-list">
+
+                    <div>
+                        <strong>Reflexive</strong>
+                        <span>a ≤ a</span>
+                    </div>
+
+                    <div>
+                        <strong>Antisymmetric</strong>
+                        <span>a ≤ b and b ≤ a → a = b</span>
+                    </div>
+
+                    <div>
+                        <strong>Transitive</strong>
+                        <span>a ≤ b and b ≤ c → a ≤ c</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 03 -->
+
+            <div class="study-card">
+
+                <div class="study-number">03</div>
+
+                <h2>From Relation to Hasse Diagram</h2>
+
+                <div class="steps">
+
+                    <div>
+                        <span>1</span>
+                        Write the elements.
+                    </div>
+
+                    <div>
+                        <span>2</span>
+                        Remove self-pairs like (a,a).
+                    </div>
+
+                    <div>
+                        <span>3</span>
+                        Remove arrowheads.
+                    </div>
+
+                    <div>
+                        <span>4</span>
+                        Find directly related elements.
+                    </div>
+
+                    <div>
+                        <span>5</span>
+                        Remove transitive relationships.
+                    </div>
+
+                    <div>
+                        <span>6</span>
+                        Draw the remaining connections.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 04 -->
+
+            <div class="study-card">
+
+                <div class="study-number">04</div>
+
+                <h2>Cover Relations</h2>
+
+                <p>
+                    If <strong>a &lt; b</strong> and there is no element
+                    between them, then <strong>b covers a</strong>.
+                </p>
+
+                <div class="mini-example">
+
+                    <div class="mini-node">c</div>
+
+                    <div class="mini-line"></div>
+
+                    <div class="mini-node">b</div>
+
+                    <div class="mini-line"></div>
+
+                    <div class="mini-node">a</div>
+
+                </div>
+
+                <p class="example-text">
+                    Here b covers a and c covers b.
+                    There is no direct connection between a and c.
+                </p>
+
+            </div>
+
+
+            <!-- 05 -->
+
+            <div class="study-card">
+
+                <div class="study-number">05</div>
+
+                <h2>Transitive Relations</h2>
+
+                <p>
+                    If <strong>a &lt; b</strong> and
+                    <strong>b &lt; c</strong>, then
+                    <strong>a &lt; c</strong>.
+                </p>
+
+                <p>
+                    However, the transitive relationship is not drawn
+                    directly in a Hasse diagram.
+                </p>
+
+                <div class="relation-example">
+
+                    <span>a</span>
+                    <i></i>
+                    <span>b</span>
+                    <i></i>
+                    <span>c</span>
+
+                </div>
+
+                <div class="warning-box">
+                    ⚠ Do not add the direct edge a — c.
+                </div>
+
+            </div>
+
+
+            <!-- 06 -->
+
+            <div class="study-card">
+
+                <div class="study-number">06</div>
+
+                <h2>Divisibility</h2>
+
+                <p>
+                    Hasse diagrams can also represent divisibility
+                    relationships.
+                </p>
+
+                <div class="math-box">
+                    A = {1, 2, 3, 6}
+                </div>
+
+                <p>
+                    1 divides 2 and 3, while 2 and 3 divide 6.
+                    The relation 1 → 6 is transitive, so it is removed.
+                </p>
+
+                <div class="divisibility-diagram">
+
+                    <span>6</span>
+
+                    <div>
+                        <span>2</span>
+                        <span>3</span>
+                    </div>
+
+                    <span>1</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- 07 -->
+
+            <div class="study-card">
+
+                <div class="study-number">07</div>
+
+                <h2>Position of Elements</h2>
+
+                <p>
+                    Elements should be arranged according to their ordering.
+                    Smaller elements are generally placed below larger ones.
+                </p>
+
+                <p>
+                    The exact horizontal position can change, but the
+                    vertical order must remain correct.
+                </p>
+
+                <div class="position-rule">
+
+                    <div>Higher / Larger</div>
+
+                    <strong>↓</strong>
+
+                    <div>Lower / Smaller</div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 08 -->
+
+            <div class="study-card">
+
+                <div class="study-number">08</div>
+
+                <h2>What Should NOT Be Drawn?</h2>
+
+                <div class="dont-list">
+
+                    <div>✕ Self-loops such as (a,a)</div>
+
+                    <div>✕ Arrowheads</div>
+
+                    <div>✕ Transitive edges</div>
+
+                    <div>✕ Unrelated connections</div>
+
+                </div>
+
+                <p>
+                    A Hasse diagram should contain only the necessary
+                    <strong>cover relations</strong>.
+                </p>
+
+            </div>
+
+
+            <!-- 09 -->
+
+            <div class="study-card remember-card">
+
+                <div class="study-number">09</div>
+
+                <h2>Quick Rule to Remember</h2>
+
+                <div class="remember-flow">
+
+                    <div>
+                        <strong>REMOVE</strong>
+                        <span>Self-pairs</span>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <div>
+                        <strong>ARRANGE</strong>
+                        <span>Smaller below larger</span>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <div>
+                        <strong>CONNECT</strong>
+                        <span>Cover relations</span>
+                    </div>
+
+                    <div class="arrow">→</div>
+
+                    <div>
+                        <strong>CHECK</strong>
+                        <span>No transitive edges</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 10 -->
+
+            <div class="study-card final-study-card">
+
+                <div class="study-number">10</div>
+
+                <h2>Ready to Play?</h2>
+
+                <p>
+                    Read the relation, identify the cover relations,
+                    place the nodes and manually connect them on the canvas.
+                </p>
+
+                <div class="game-tip">
+                    🎯 Your goal is not to draw every relation.
+                    <strong>Draw only the correct cover relations.</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= LEVELS ================= -->
+
+<section id="levelsSection" class="section">
+
+    <div class="journey-header">
+
+        <span>YOUR LOGIC JOURNEY</span>
+
+        <h1>Choose Your Path</h1>
+
+        <p>
+            Complete each gate to unlock the next.
+        </p>
+
+        <div class="progress-area">
+
+            <div class="progress-info">
+                <span>Journey Progress</span>
+                <span id="journeyProgress">0 / 9</span>
+            </div>
+
+            <div class="progress-bar">
+                <div id="journeyFill"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="journey">
+
+        <div class="journey-line"></div>
+
+        <div class="checkpoint" id="checkpoint1">
+
+            <div class="checkpoint-node" onclick="openLevel(1)">
+                01
+            </div>
+
+            <div class="checkpoint-info">
+                <span>GATE 01</span>
+                <h2>The Beginning</h2>
+                <p>Every journey starts somewhere.</p>
+            </div>
+
+        </div>
+
+
+        <div class="checkpoint reverse" id="checkpoint2">
+
+            <div class="checkpoint-node" onclick="openLevel(2)">
+                02
+            </div>
+
+            <div class="checkpoint-info">
+                <span>GATE 02</span>
+                <h2>First Connections</h2>
+                <p>Start finding the important links.</p>
+            </div>
+
+        </div>
+
+
+        <div class="checkpoint" id="checkpoint3">
+
+            <div class="checkpoint-node" onclick="openLevel(3)">
+                03
+            </div>
+
+            <div class="checkpoint-info">
+                <span>GATE 03</span>
+                <h2>Hidden Links</h2>
+                <p>Not every relation should be visible.</p>
+            </div>
+
+        </div>
+
+
+        <div class="checkpoint reverse" id="checkpoint4">
+
+            <div class="checkpoint-node" onclick="openLevel(4)">
+                04
+            </div>
+
+            <div class="checkpoint-info">
+                <span>GATE 04</span>
+                <h2>The Middle Path</h2>
+                <p>Find the connections that actually matter.</p>
+            </div>
+
+        </div>
+
+
+        <div class="checkpoint" id="checkpoint5">
+
+            <div class="checkpoint-node" onclick="openLevel(5)">
+                05
+            </div>
+
+            <div class="checkpoint-info">
+                <span>GATE 05</span>
+                <h2>Rising Order</h2>
+                <p>Keep the order perfectly balanced.</p>
+            </div>
+
+        </div>
+
+
+        <div class="checkpoint reverse" id="checkpoint6">
+
+            <div class="checkpoint-node" onclick="openLevel(6)">
+                06
+            </div>
+
+            <div class="checkpoint-info">
+                <span>GATE 06</span>
+                <h2>The Maze</h2>
+                <p>Many paths. Only some are correct.</p>
+            </div>
+
+        </div>
+
+
+        <div class="checkpoint" id="checkpoint7">
+
+            <div class="checkpoint-node" onclick="openLevel(7)">
+                07
+            </div>
+
+            <div class="checkpoint-info">
+                <span>GATE 07</span>
+                <h2>Logic Breaker</h2>
+                <p>Think carefully before connecting.</p>
+            </div>
+
+        </div>
+
+
+        <div class="checkpoint reverse" id="checkpoint8">
+
+            <div class="checkpoint-node" onclick="openLevel(8)">
+                08
+            </div>
+
+            <div class="checkpoint-info">
+                <span>GATE 08</span>
+                <h2>The Final Gate</h2>
+                <p>One last challenge before the crown.</p>
+            </div>
+
+        </div>
+
+
+        <div class="master-gate" id="masterGate" onclick="openLevel(9)">
+
+            <div class="master-crown">♛</div>
+
+            <span>FINAL CHALLENGE</span>
+
+            <h2>Master Challenge</h2>
+
+            <p>
+                Prove that you have mastered Hasse diagrams.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= GAME ================= -->
+
+<section id="gameSection" class="section">
+
+    <div class="game-top">
+
+        <button class="back-btn" onclick="showSection('levelsSection')">
+            ← Journey
+        </button>
+
+        <div class="game-level-info">
+
+            <span id="gameLevel">LEVEL 01</span>
+
+            <h1 id="gameTitle">The Beginning</h1>
+
+        </div>
+
+        <div class="xp-display">
+            <span>XP</span>
+            <strong id="gameXP">0</strong>
+        </div>
+
+    </div>
+
+
+    <div class="game-layout">
+
+        <!-- MISSION -->
+
+        <aside class="mission-panel">
+
+            <span class="mission-label">MISSION</span>
+
+            <h2 id="questionNumber">
+                Question 1 / 3
+            </h2>
+
+            <h3 id="questionTitle">
+                Find the cover relations
+            </h3>
+
+            <p id="questionText">
+                Build the correct Hasse diagram.
+            </p>
+
+            <div class="set-box">
+
+                <span>SET</span>
+
+                <strong id="setDisplay">
+                    A = {a, b, c}
+                </strong>
+
+            </div>
+
+            <div class="relation-box">
+
+                <span>RELATION</span>
+
+                <div id="relationDisplay">
+                    R = { ... }
+                </div>
+
+            </div>
+
+            <div class="element-panel">
+
+                <span>ELEMENTS</span>
+
+                <div id="elementList"></div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- BUILDER -->
+
+        <main class="builder-panel">
+
+            <div class="builder-header">
+
+                <div>
+                    <span>BUILD AREA</span>
+
+                    <h2>Construct the diagram</h2>
+                </div>
+
+                <div class="builder-instruction">
+                    Drag nodes • Connect nodes
+                </div>
+
+            </div>
+
+
+            <div class="diagram-area" id="diagramArea">
+
+                <svg id="connectionLayer"></svg>
+
+            </div>
+
+
+            <div class="builder-controls">
+
+                <button
+                    class="control-btn"
+                    onclick="resetDiagram()">
+                    ↻ Reset
+                </button>
+
+                <button
+                    class="control-btn connect-btn"
+                    id="connectModeBtn"
+                    onclick="toggleConnectMode()">
+                    ＋ Connect
+                </button>
+
+                <button
+                    class="check-btn"
+                    onclick="checkAnswer()">
+                    Check Answer →
+                </button>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- RESULT -->
+
+    <div class="result-box" id="resultBox">
+
+        <div id="resultIcon">✓</div>
+
+        <div>
+            <h2 id="resultTitle">Excellent!</h2>
+            <p id="resultMessage"></p>
+        </div>
+
+    </div>
+
+
+    <!-- SOLUTION -->
+
+    <div class="solution-box" id="solutionBox">
+
+        <h3>Correct Cover Relations</h3>
+
+        <p id="solutionText"></p>
+
+    </div>
+
+
+    <button
+        class="continue-btn"
+        id="continueBtn"
+        onclick="continueLevel()">
+        Continue →
+    </button>
+
+</section>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
